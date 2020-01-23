@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const request = require('request');
-const port = 3000;
+//const port = 3000;
 const path = require('path');
 const fs = require('fs');
 
@@ -19,4 +19,10 @@ app.get('/request', function(req, res) {
     fs.createReadStream(filePath).pipe(res);
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+//app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+var server = app.listen(process.env.PORT || 80, function () {
+   var host = server.address().address;
+   var port = server.address().port ;
+   console.log("Example app listening at http://%s:%s", host, port)
+});

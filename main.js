@@ -63,7 +63,9 @@ function writeToDOM(reader) {
  */
 async function process() {
     // Retrieve NDJSON from the server
-    const response = await fetch('http://localhost:3000/request');
+    var url = window.origin;
+	//const response = await fetch('http://localhost:3000/request');
+	const response = await fetch(url + '/request');
 
     const results = response.body
         // // From bytes to text:
